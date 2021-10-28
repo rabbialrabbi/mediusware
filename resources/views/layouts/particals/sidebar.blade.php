@@ -54,7 +54,10 @@
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Product Option:</h6>
                 <a class="collapse-item {{ url()->current() == route('product-variant.index') ? 'active' : '' }}"
+                   href="{{ route('product-list.index') }}">Product List</a>
+                <a class="collapse-item {{ url()->current() == route('product-variant.index') ? 'active' : '' }}"
                    href="{{ route('product-variant.index') }}">Variant</a>
+
                 <h6 class="collapse-header">Custom Components:</h6>
                 <a class="collapse-item {{ url()->current() == route('product.create') ? 'active' : '' }}" href="{{ route('product.create') }}">Create
                     Product</a>

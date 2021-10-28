@@ -10,4 +10,18 @@ class Product extends Model
         'title', 'sku', 'description'
     ];
 
+    public function combos()
+    {
+        return $this->hasMany(ProductVariantPrice::class);
+    }
+
+    public function productVariant()
+    {
+        return $this->hasMany(ProductVariant::class);
+    }
+
+
+
+
+
 }

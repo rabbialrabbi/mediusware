@@ -10,4 +10,14 @@ class Variant extends Model
         'title', 'description'
     ];
 
+    public function getVariantDetailsAttribute()
+    {
+        return $this->productItems()->select('variant')->groupBy('variant')->get();
+    }
+
+    public function productItems()
+    {
+        return $this->hasMany(ProductVariant::class);
+    }
+
 }

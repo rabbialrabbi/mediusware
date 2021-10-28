@@ -110,13 +110,19 @@ export default {
         variants: {
             type: Array,
             required: true
+        },
+        product:{
+            type: Array,
+            required: true
         }
+
     },
     data() {
         return {
-            product_name: '',
-            product_sku: '',
-            description: '',
+            product_id: this.product.id,
+            product_name: this.product.title,
+            product_sku: this.product.sku,
+            description: this.product.description,
             images: [],
             product_variant: [
                 {
@@ -189,7 +195,7 @@ export default {
             }
 
 
-            axios.post('/product-list', product).then(response => {
+            axios.patch('/product-list/'+this.product_id, product).then(response => {
                 console.log(response.data);
             }).catch(error => {
                 console.log(error);
@@ -202,6 +208,32 @@ export default {
     },
     mounted() {
         console.log('Component mounted.')
+        let product = this.product
+        let product_variant = []
+        this.variants.forEach(function (q) {
+            let variantId = q.id
+            let tag = []
+            product.product_variant.forEach(function (l) {
+                if(l.variant_id == variantId){
+                    tag.push(l.variant)
+                }
+            })
+            product_variant.push({
+                option: variantId,
+                tags: tag
+            })
+        })
+        this.product_variant = product_variant
+
+        let productVariant = []
+        product.combos.forEach(function (q) {
+            productVariant.push({
+                'price':q.price,
+                'stock':q.stock,
+                'title':q.variant_name
+            })
+        })
+        this.product_variant_prices = productVariant
     }
 }
 </script>
