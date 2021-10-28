@@ -112,7 +112,7 @@ export default {
             required: true
         },
         product:{
-            type: Array,
+            type: Object,
             required: true
         }
 

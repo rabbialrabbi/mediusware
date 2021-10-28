@@ -2250,7 +2250,7 @@ __webpack_require__.r(__webpack_exports__);
       required: true
     },
     product: {
-      type: Array,
+      type: Object,
       required: true
     }
   },
@@ -2362,16 +2362,17 @@ __webpack_require__.r(__webpack_exports__);
         tags: tag
       });
     });
-    this.product_variant = product_variant;
-    var productVariant = [];
-    product.combos.forEach(function (q) {
-      productVariant.push({
-        'price': q.price,
-        'stock': q.stock,
-        'title': q.variant_name
-      });
-    });
-    this.product_variant_prices = productVariant;
+    this.product_variant = product_variant; // let productVariant = []
+    // product.combos.forEach(function (q) {
+    //     productVariant.push({
+    //         'price':q.price,
+    //         'stock':q.stock,
+    //         'title':q.variant_name
+    //     })
+    // })
+    // this.product_variant_prices = productVariant
+
+    this.checkVariant();
   }
 });
 
