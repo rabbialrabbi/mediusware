@@ -135,6 +135,7 @@ class ProductListController extends Controller
 
     public function update(Request $request, Product $product_list)
     {
+//        return request()->all();
         $productId = $product_list->id;
 
         $product =   $request->only('title','sku', 'description');

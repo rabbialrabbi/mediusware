@@ -225,15 +225,16 @@ export default {
         })
         this.product_variant = product_variant
 
-        let productVariant = []
-        product.combos.forEach(function (q) {
-            productVariant.push({
-                'price':q.price,
-                'stock':q.stock,
-                'title':q.variant_name
-            })
-        })
-        this.product_variant_prices = productVariant
+        // let productVariant = []
+        // product.combos.forEach(function (q) {
+        //     productVariant.push({
+        //         'price':q.price,
+        //         'stock':q.stock,
+        //         'title':q.variant_name
+        //     })
+        // })
+        // this.product_variant_prices = productVariant
+        this.checkVariant()
     }
 }
 </script>
